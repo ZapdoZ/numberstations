@@ -1,5 +1,5 @@
 # numberstations
-Python script that emulates real numbers stations
+Python script that emulates real numbers stations.\n
 Required libraries:
 - playsound
 Usage:
