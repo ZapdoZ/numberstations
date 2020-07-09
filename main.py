@@ -129,6 +129,77 @@ def e07():
             sleep(0.4)
 
 
+def e07a():
+    # ---beginning---
+    # sets the line to read from and converts the string to a list;
+    activeline = all_lines[1]
+    activelist = ([activeline[i:i + 1] for i in range(0, len(activeline), 1)])
+    grpcnt = ([all_lines[4][i:i + 1] for i in range(0, len(all_lines[4]), 1)])
+    extragroup = ([all_lines[2][i:i + 1] for i in range(0, len(all_lines[2]), 1)])
+    # deletes last item
+    del grpcnt[-1]
+    del activelist[-1]
+    del extragroup[-1]
+    print("For ID " + ' '.join(activelist))
+    print("1 message")
+    print("With extra group " + ' '.join(extragroup))
+    # plays the starting numbers (ID ID ID Msgcnt)
+    for Nr in range(8):
+        sleep(0.4)
+        for Nr in range(3):
+            sleep(1.1)
+            for Nr in range(3):
+                activenumber = activelist[Nr]
+                playsound("E07/{}.wav".format(activenumber))
+                sleep(0.4)
+        sleep(1.1)
+        playsound("E07/1.wav")
+        sleep(1.1)
+        for Nr in range(len(extragroup)):
+            activenumber = extragroup[Nr]
+            playsound("E07/{}.wav".format(activenumber))
+            sleep(0.4)
+    # Mid part. Plays 3/4-digit group and grpcnt twice
+    activeline = all_lines[3]
+    activelist = ([activeline[i:i + 1] for i in range(0, len(activeline), 1)])
+    del activelist[-1]
+    sleep(3.9)
+    print(' '.join(activelist))
+    print("With " + ' '.join(grpcnt) + " groups")
+    for Nr in range(2):
+        for Nr in range(len(activelist)):
+            activenumber = activelist[Nr]
+            playsound("E07/{}.wav".format(activenumber))
+            sleep(0.4)
+        sleep(1.1)
+        for Nr in range(len(grpcnt)):
+            activegrpcountnumber = grpcnt[Nr]
+            playsound("E07/{}.wav".format(activegrpcountnumber))
+            sleep(1.1)
+    sleep(3.9)
+    # ---MAIN PART---
+    activeline = all_lines[5]
+    activelist = activeline.split()
+    for Nr in range (len(activelist)):
+        activegroup = activelist[Nr]
+        activesplitgroup = ([activegroup[i:i + 1] for i in range(0, len(activegroup), 1)])
+        print(' '.join(activesplitgroup))
+        for Nr in range(1):
+            for Nr in range(5):
+                activenumber = activesplitgroup[Nr]
+                playsound("E07/{}.wav".format(activenumber))
+                sleep(0.4)
+            sleep(1.1)
+    # End it all
+    sleep(3.9)
+    print("000 000")
+    for Nr in range(2):
+        sleep(1.1)
+        for Nr in range(3):
+            playsound("E07/0.wav")
+            sleep(0.4)
+
+
 if len(sys.argv)>2:
     print("Invalid input. Refer to documentation")
     exit()
@@ -148,5 +219,7 @@ if all_lines[0] == "E11\n":
     e11()
 elif all_lines[0] == "E07\n":
     e07()
+elif all_lines[0] == "E07a\n":
+    e07a()
 else:
     print("File invalid")
