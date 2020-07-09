@@ -1,9 +1,9 @@
 # numberstations
-Python script that emulates real numbers stations.\n
-Required libraries:
-- playsound
-Usage:
-Launch main.py <textfile.txt> in the CLI of your choice.
+Python script that emulates real numbers stations  
+Required libraries:  
+- playsound  
+Usage:  
+Launch main.py <textfile.txt> in the CLI of your choice.  
 
 The stations:
 So far, this script supports E11 and E07 (single message formats; I'm working on more!).
