@@ -17,11 +17,11 @@ Text file layout for E11:
 2.  Any 3-digit ID
 3.  The Group count
 4.  The 5-digit groups
-Example:
-E11
-635
-3
-45612 58697 19853
+Example:  
+E11  
+635  
+3  
+45612 58697 19853  
 
 Text file layout for E07:
 1.  E07
@@ -30,9 +30,9 @@ Text file layout for E07:
 4.  The group count
 5.  The 5-digit groups
 
-Example:
-E07
-945
-728
-5
-45612 58676 19854 98745 63210
+Example:  
+E07  
+945  
+728  
+5  
+45612 58676 19854 98745 63210  
