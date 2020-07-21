@@ -4,7 +4,7 @@ Required libraries:
 - playsound
 
 Usage:  
-Launch "main.py textfile.txt" in the CLI of your choice.
+Launch "main.py textfile.txt" in the CLI of your choice.  
 You can now check your files for errors before running them through the main.py. Just run "validator.py yourfile.txt" in your cli! (of course without quotes)  
 
 The stations:  
