@@ -76,7 +76,7 @@ except FileNotFoundError:
     exit()
 
 # they're always true
-supportedModes = ["E11", "E07", "S06s"]
+supportedModes = ["E11", "E07"]
 all_lines = text_file.readlines()
 stationmode = all_lines[0]
 # print(stationmode)
