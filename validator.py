@@ -87,6 +87,10 @@ if stationmode == "E11\n":
     primID = all_lines[1]
     groupcount = all_lines[2]
     maingroups = all_lines[3]
+elif stationmode == "S11a\n":
+    primID = all_lines[1]
+    groupcount = all_lines[2]
+    maingroups = all_lines[3]
 elif stationmode == "E07\n":
     primID = all_lines[1]
     secID = all_lines[2]
