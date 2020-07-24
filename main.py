@@ -83,7 +83,7 @@ def s11a():
     print("For ID " + ' '.join(activelist))
     print("with " + ' '.join(grpcnt) + " groups")
     # plays the starting numbers (ID; Cherta; Group count)
-    for Nr in range(3):
+    for Nr in range(30):
         sleep(0.5)
         for Nr in range(3):
             activenumber = activelist[Nr]
