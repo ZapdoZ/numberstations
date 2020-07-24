@@ -5,16 +5,18 @@ import sys
 
 def e11():
     # ---beginning---
-    # sets the line to read from and converts the string to a list;
-    # deletes last item
+    # sets the line to read from and converts the string to a list
     activeline = all_lines[1]
     activelist = ([activeline[i:i + 1] for i in range(0, len(activeline), 1)])
+    # fetches the group count
     grpcnt = ([all_lines[2][i:i + 1] for i in range(0, len(all_lines[2]), 1)])
+    # deletes last item "\n" from the lists
     del grpcnt[-1]
     del activelist[-1]
+    # prints some info
     print("For ID " + ' '.join(activelist))
     print("with " + ' '.join(grpcnt) + " groups")
-    # plays the starting numbers (ID Oblique Groupcount)
+    # plays the starting numbers (ID; Oblique; Group count)
     for Nr in range(30):
         sleep(0.5)
         for Nr in range(3):
@@ -23,7 +25,7 @@ def e11():
             sleep(0.23)
         playsound("E11/Oblique.wav")
         sleep(0.23)
-        for Nr in range (len(grpcnt)):
+        for Nr in range(len(grpcnt)):
             activegrpcntnumber = grpcnt[Nr]
             playsound("E11/{}.wav".format(activegrpcntnumber))
             sleep(0.23)
@@ -35,7 +37,7 @@ def e11():
     # ---MAIN PART---
     activeline = all_lines[3]
     activelist = activeline.split()
-    for Nr in range (len(activelist)):
+    for Nr in range(len(activelist)):
         activegroup = activelist[Nr]
         activesplitgroup = ([activegroup[i:i + 1] for i in range(0, len(activegroup), 1)])
         print(' '.join(activesplitgroup))
@@ -64,6 +66,72 @@ def e11():
     # End it all
     print("Out!")
     playsound("E11/out.wav")
+
+
+def s11a():
+    # basically the same as e11
+    # ---beginning---
+    # sets the line to read from and converts the string to a list
+    activeline = all_lines[1]
+    activelist = ([activeline[i:i + 1] for i in range(0, len(activeline), 1)])
+    # fetches the group count
+    grpcnt = ([all_lines[2][i:i + 1] for i in range(0, len(all_lines[2]), 1)])
+    # deletes last item "\n" from the lists
+    del grpcnt[-1]
+    del activelist[-1]
+    # prints some info
+    print("For ID " + ' '.join(activelist))
+    print("with " + ' '.join(grpcnt) + " groups")
+    # plays the starting numbers (ID; Cherta; Group count)
+    for Nr in range(3):
+        sleep(0.5)
+        for Nr in range(3):
+            activenumber = activelist[Nr]
+            playsound("S11a/{}.wav".format(activenumber))
+            sleep(0.23)
+        playsound("S11a/Cherta.wav")
+        sleep(0.23)
+        for Nr in range(len(grpcnt)):
+            activegrpcntnumber = grpcnt[Nr]
+            playsound("S11a/{}.wav".format(activegrpcntnumber))
+            sleep(0.23)
+    # Vnimanie!
+    sleep(0.5)
+    print("Vnimanie!")
+    playsound("S11a/vnimanie.wav")
+    sleep(0.5)
+    # ---MAIN PART---
+    activeline = all_lines[3]
+    activelist = activeline.split()
+    for Nr in range(len(activelist)):
+        activegroup = activelist[Nr]
+        activesplitgroup = ([activegroup[i:i + 1] for i in range(0, len(activegroup), 1)])
+        print(' '.join(activesplitgroup))
+        for Nr in range(2):
+            for Nr in range(5):
+                activenumber = activesplitgroup[Nr]
+                playsound("S11a/{}.wav".format(activenumber))
+                sleep(0.23)
+            sleep(0.5)
+    print("Vnimanie!")
+    playsound("S11a/vnimanie.wav")
+    sleep(0.5)
+    # Repeat
+    activeline = all_lines[3]
+    activelist = activeline.split()
+    for Nr in range (len(activelist)):
+        activegroup = activelist[Nr]
+        activesplitgroup = ([activegroup[i:i + 1] for i in range(0, len(activegroup), 1)])
+        print(' '.join(activesplitgroup))
+        for Nr in range(1):
+            for Nr in range(5):
+                activenumber = activesplitgroup[Nr]
+                playsound("S11a/{}.wav".format(activenumber))
+                sleep(0.23)
+            sleep(0.5)
+    # End it all
+    print("Konets!")
+    playsound("S11a/konets.wav")
 
 
 def e07():
@@ -109,7 +177,7 @@ def e07():
     # ---MAIN PART---
     activeline = all_lines[4]
     activelist = activeline.split()
-    for Nr in range (len(activelist)):
+    for Nr in range(len(activelist)):
         activegroup = activelist[Nr]
         activesplitgroup = ([activegroup[i:i + 1] for i in range(0, len(activegroup), 1)])
         print(' '.join(activesplitgroup))
@@ -180,7 +248,7 @@ def e07a():
     # ---MAIN PART---
     activeline = all_lines[5]
     activelist = activeline.split()
-    for Nr in range (len(activelist)):
+    for Nr in range(len(activelist)):
         activegroup = activelist[Nr]
         activesplitgroup = ([activegroup[i:i + 1] for i in range(0, len(activegroup), 1)])
         print(' '.join(activesplitgroup))
@@ -200,26 +268,35 @@ def e07a():
             sleep(0.4)
 
 
-if len(sys.argv)>2:
+# check if given cli input isn't too long, exit if so
+if len(sys.argv) > 2:
     print("Invalid input. Refer to documentation")
     exit()
-# txt = "e07test.txt"
+
+# tries to load the text file from the given cli argument
 try:
     text_file = open((sys.argv[1]))
+# exits if there is no cli argument
 except IndexError:
     print("Invalid input. Refer to documentation")
     exit()
+# exits if the file doesn't exist
 except FileNotFoundError:
     print("File doesn't exist")
     exit()
-# text_file = open(txt)
+
+# puts all lines of the text file into a list
 all_lines = text_file.readlines()
 print("Starting custom station as " + str(all_lines[0]))
+
+# checks for mode in first line and starts the required function
 if all_lines[0] == "E11\n":
     e11()
 elif all_lines[0] == "E07\n":
     e07()
 elif all_lines[0] == "E07a\n":
     e07a()
+elif all_lines[0] == "S11a\n":
+    s11a()
 else:
     print("File invalid")

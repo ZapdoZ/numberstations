@@ -58,6 +58,7 @@ def multigroupcheck():
             exit()
         print("Group #" + str(Nr+1) +  " " + str(primgroupLST[Nr]) + " Accepted")
 
+
 # check if given cli input isn't too long, exit if so
 if len(sys.argv) > 2:
     print("Invalid input. Refer to documentation")
@@ -114,10 +115,12 @@ elif stationmode == "E07a\n" and len(all_lines) != 6:
     print("[Station Mode] E07a files have to be exactly 6 lines long, quitting")
     exit()
 
-
-
 print("[Station Mode] Mode " + stationmode.rstrip("\n") + " ok")
 if stationmode == "E11\n":
+    sggroupcheck(primID, 3, 0, "Primary ID")
+    sggroupcheck(groupcount, 0, 2, "Group count")
+    multigroupcheck()
+if stationmode == "S11a\n":
     sggroupcheck(primID, 3, 0, "Primary ID")
     sggroupcheck(groupcount, 0, 2, "Group count")
     multigroupcheck()
