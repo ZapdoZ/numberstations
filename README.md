@@ -4,8 +4,7 @@ Python script that emulates real numbers stations
     playsound
 
 ## Usage
-Launch "main.py <textfile.txt>" in the CLI of your choice.
-You can also check your files for errors before running them through the main.py. Just run "validator.py <textfile.txt>" in your CLI!
+Launch "main.py <textfile.txt>" in the CLI of your choice.  
 
 ## The stations
 So far, this script supports E11, E07, E07a and S11a (single message formats; I'm working on more!).
