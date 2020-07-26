@@ -1,6 +1,7 @@
 from playsound import playsound
 from time import sleep
 import sys
+import validator
 
 
 def e11():
@@ -289,14 +290,37 @@ except FileNotFoundError:
 all_lines = text_file.readlines()
 print("Starting custom station as " + str(all_lines[0]))
 
-# checks for mode in first line and starts the required function
+# checks for mode in first line, checks the file and starts the required function
 if all_lines[0] == "E11\n":
+    validator.sggroupcheck(all_lines[1], 3, 0, "Primary ID")
+    validator.sggroupcheck(all_lines[2], 0, 2, "Group count")
+    validator.multigroupcheck(all_lines[3])
+    print("\n")
+    print("Begin message")
     e11()
 elif all_lines[0] == "E07\n":
+    validator.sggroupcheck(all_lines[1], 3, 0, "Primary ID")
+    validator.sggroupcheck(all_lines[2], 0, 1, "Secondary ID")
+    validator.sggroupcheck(all_lines[3], 0, 2, "Group count")
+    validator.multigroupcheck(all_lines[4])
+    print("\n")
+    print("Begin message")
     e07()
 elif all_lines[0] == "E07a\n":
+    validator.sggroupcheck(all_lines[1], 3, 0, "Primary ID")
+    validator.sggroupcheck(all_lines[2], 5, 0, "Third ID")
+    validator.sggroupcheck(all_lines[3], 0, 1, "Secondary ID")
+    validator.sggroupcheck(all_lines[4], 0, 2, "Group count")
+    validator.multigroupcheck(all_lines[5])
+    print("\n")
+    print("Begin message")
     e07a()
 elif all_lines[0] == "S11a\n":
+    validator.sggroupcheck(all_lines[1], 3, 0, "Primary ID")
+    validator.sggroupcheck(all_lines[2], 0, 2, "Group count")
+    validator.multigroupcheck(all_lines[3])
+    print("\n")
+    print("Begin message")
     s11a()
 else:
     print("File invalid")
