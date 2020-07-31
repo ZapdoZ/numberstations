@@ -33,7 +33,7 @@ def e11():
     # Attention!
     sleep(0.5)
     print("Attention!")
-    playsound("E11/attention.wav")
+    playsound("E11/Attention.wav")
     sleep(0.5)
     # ---MAIN PART---
     activeline = all_lines[3]
@@ -49,7 +49,7 @@ def e11():
                 sleep(0.23)
             sleep(0.5)
     print("Attention!")
-    playsound("E11/attention.wav")
+    playsound("E11/Attention.wav")
     sleep(0.5)
     # Repeat
     activeline = all_lines[3]
