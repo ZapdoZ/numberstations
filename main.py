@@ -132,7 +132,7 @@ def s11a():
             sleep(0.5)
     # End it all
     print("Konets!")
-    playsound("S11a/konets.wav")
+    playsound("S11a/Konets.wav")
 
 
 def e07():
