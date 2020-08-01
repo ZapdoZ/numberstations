@@ -2,7 +2,15 @@ from time import sleep
 import sys
 import validator
 import os
+import platform
 
+if platform.system() != "Linux":
+	print("The WAV out only works on Linux, do you still want to run the script? (y/n)", end="")
+	yesno = input()
+	if yesno == "y":
+		pass
+	else:
+		exit()
 
 os.system("rm /tmp/out.wav")
 os.system("sox -n -r 44100 /tmp/out.wav trim 0.0 0.0")
