@@ -99,7 +99,7 @@ def s11a():
     # Vnimanie!
     sleep(0.5)
     print("Vnimanie!")
-    playsound("S11a/vnimanie.wav")
+    playsound("S11a/Vnimanie.wav")
     sleep(0.5)
     # ---MAIN PART---
     activeline = all_lines[3]
@@ -115,7 +115,7 @@ def s11a():
                 sleep(0.23)
             sleep(0.5)
     print("Vnimanie!")
-    playsound("S11a/vnimanie.wav")
+    playsound("S11a/Vnimanie.wav")
     sleep(0.5)
     # Repeat
     activeline = all_lines[3]
