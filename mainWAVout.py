@@ -10,7 +10,7 @@ os.system("sox -n -r 44100 /tmp/out.wav trim 0.0 0.0")
 def playsound(sound):
   os.system("sox /tmp/out.wav {} /tmp/out2.wav".format(sound))
   os.system("mv /tmp/out2.wav /tmp/out.wav")
-  
+
 def sleep(secs):
    os.system("sox -n -r 44100 /tmp/sltemp.wav trim 0.0 {}".format(secs))
    os.system("sox /tmp/out.wav /tmp/sltemp.wav /tmp/out2.wav")
@@ -111,7 +111,7 @@ def s11a():
     # Vnimanie!
     sleep(0.5)
     print("Vnimanie!")
-    playsound("S11a/vnimanie.wav")
+    playsound("S11a/Vnimanie.wav")
     sleep(0.5)
     # ---MAIN PART---
     activeline = all_lines[3]
@@ -127,7 +127,7 @@ def s11a():
                 sleep(0.23)
             sleep(0.5)
     print("Vnimanie!")
-    playsound("S11a/vnimanie.wav")
+    playsound("S11a/Vnimanie.wav")
     sleep(0.5)
     # Repeat
     activeline = all_lines[3]
@@ -144,7 +144,7 @@ def s11a():
             sleep(0.5)
     # End it all
     print("Konets!")
-    playsound("S11a/konets.wav")
+    playsound("S11a/Konets.wav")
 
 
 def e07():
