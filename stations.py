@@ -1,18 +1,18 @@
-from playsound import playsound
-from time import sleep
-import sys
 import validator
+from time import sleep
+from playsound import playsound
 
-def e11():
+
+def e11(inputID, inputgrpcnt, inputmessage):
     # ---beginning---
     # sets the line to read from and converts the string to a list
-    activeline = all_lines[1]
+    activeline = inputID
     activelist = ([activeline[i:i + 1] for i in range(0, len(activeline), 1)])
     # fetches the group count
-    grpcnt = ([all_lines[2][i:i + 1] for i in range(0, len(all_lines[2]), 1)])
+    grpcnt = ([inputgrpcnt[i:i + 1] for i in range(0, len(inputgrpcnt), 1)])
     # deletes last item "\n" from the lists
-    del grpcnt[-1]
-    del activelist[-1]
+    # del grpcnt[-1]
+    # del activelist[-1]
     # prints some info
     print("For ID " + ' '.join(activelist))
     print("with " + ' '.join(grpcnt) + " groups")
@@ -35,7 +35,7 @@ def e11():
     playsound("E11/Attention.wav")
     sleep(0.5)
     # ---MAIN PART---
-    activeline = all_lines[3]
+    activeline = inputmessage
     activelist = activeline.split()
     for Nr in range(len(activelist)):
         activegroup = activelist[Nr]
@@ -53,7 +53,7 @@ def e11():
     # Repeat
     activeline = all_lines[3]
     activelist = activeline.split()
-    for Nr in range(len(activelist)):
+    for Nr in range (len(activelist)):
         activegroup = activelist[Nr]
         activesplitgroup = ([activegroup[i:i + 1] for i in range(0, len(activegroup), 1)])
         print(' '.join(activesplitgroup))
@@ -68,17 +68,15 @@ def e11():
     playsound("E11/out.wav")
 
 
-def s11a():
+def s11a(inputID, inputgrpcnt, inputmessage):
     # basically the same as e11
     # ---beginning---
     # sets the line to read from and converts the string to a list
-    activeline = all_lines[1]
+    activeline = inputID
     activelist = ([activeline[i:i + 1] for i in range(0, len(activeline), 1)])
     # fetches the group count
-    grpcnt = ([all_lines[2][i:i + 1] for i in range(0, len(all_lines[2]), 1)])
+    grpcnt = ([inputgrpcnt[i:i + 1] for i in range(0, len(inputgrpcnt), 1)])
     # deletes last item "\n" from the lists
-    del grpcnt[-1]
-    del activelist[-1]
     # prints some info
     print("For ID " + ' '.join(activelist))
     print("with " + ' '.join(grpcnt) + " groups")
@@ -101,7 +99,7 @@ def s11a():
     playsound("S11a/Vnimanie.wav")
     sleep(0.5)
     # ---MAIN PART---
-    activeline = all_lines[3]
+    activeline = inputmessage
     activelist = activeline.split()
     for Nr in range(len(activelist)):
         activegroup = activelist[Nr]
@@ -117,7 +115,7 @@ def s11a():
     playsound("S11a/Vnimanie.wav")
     sleep(0.5)
     # Repeat
-    activeline = all_lines[3]
+    activeline = inputmessage
     activelist = activeline.split()
     for Nr in range (len(activelist)):
         activegroup = activelist[Nr]
@@ -134,15 +132,13 @@ def s11a():
     playsound("S11a/Konets.wav")
 
 
-def e07():
+def e07(inputID, inputsecid, inputgrpcnt, inputmessage):
     # ---beginning---
     # sets the line to read from and converts the string to a list;
-    activeline = all_lines[1]
+    activeline = inputID
     activelist = ([activeline[i:i + 1] for i in range(0, len(activeline), 1)])
-    grpcnt = ([all_lines[3][i:i + 1] for i in range(0, len(all_lines[3]), 1)])
+    grpcnt = ([inputgrpcnt[i:i + 1] for i in range(0, len(inputgrpcnt), 1)])
     # deletes last item
-    del grpcnt[-1]
-    del activelist[-1]
     print("For ID " + ' '.join(activelist))
     print("1 message")
     # plays the starting numbers (ID ID ID Msgcnt)
@@ -157,7 +153,7 @@ def e07():
         sleep(1.1)
         playsound("E07/1.wav")
     # Mid part. Plays 3/4-digit group and grpcnt twice
-    activeline = all_lines[2]
+    activeline = inputsecid
     activelist = ([activeline[i:i + 1] for i in range(0, len(activeline), 1)])
     del activelist[-1]
     sleep(3.9)
@@ -175,7 +171,7 @@ def e07():
             sleep(1.1)
     sleep(3.9)
     # ---MAIN PART---
-    activeline = all_lines[4]
+    activeline = inputmessage
     activelist = activeline.split()
     for Nr in range(len(activelist)):
         activegroup = activelist[Nr]
@@ -197,17 +193,14 @@ def e07():
             sleep(0.4)
 
 
-def e07a():
+def e07a(inputID, inputsecid, inputthirdid, inputgrpcnt, inputmessage):
     # ---beginning---
     # sets the line to read from and converts the string to a list;
-    activeline = all_lines[1]
+    activeline = inputID
     activelist = ([activeline[i:i + 1] for i in range(0, len(activeline), 1)])
-    grpcnt = ([all_lines[4][i:i + 1] for i in range(0, len(all_lines[4]), 1)])
-    extragroup = ([all_lines[2][i:i + 1] for i in range(0, len(all_lines[2]), 1)])
+    grpcnt = ([inputgrpcnt[i:i + 1] for i in range(0, len(inputgrpcnt), 1)])
+    extragroup = ([inputthirdid[i:i + 1] for i in range(0, len(inputthirdid), 1)])
     # deletes last item
-    del grpcnt[-1]
-    del activelist[-1]
-    del extragroup[-1]
     print("For ID " + ' '.join(activelist))
     print("1 message")
     print("With extra group " + ' '.join(extragroup))
@@ -228,9 +221,8 @@ def e07a():
             playsound("E07/{}.wav".format(activenumber))
             sleep(0.4)
     # Mid part. Plays 3/4-digit group and grpcnt twice
-    activeline = all_lines[3]
+    activeline = inputsecid
     activelist = ([activeline[i:i + 1] for i in range(0, len(activeline), 1)])
-    del activelist[-1]
     sleep(3.9)
     print(' '.join(activelist))
     print("With " + ' '.join(grpcnt) + " groups")
@@ -246,7 +238,7 @@ def e07a():
             sleep(1.1)
     sleep(3.9)
     # ---MAIN PART---
-    activeline = all_lines[5]
+    activeline = inputmessage
     activelist = activeline.split()
     for Nr in range(len(activelist)):
         activegroup = activelist[Nr]
@@ -267,59 +259,3 @@ def e07a():
             playsound("E07/0.wav")
             sleep(0.4)
 
-
-# check if given cli input isn't too long, exit if so
-if len(sys.argv) > 2:
-    print("Invalid input. Refer to documentation")
-    exit()
-
-# tries to load the text file from the given cli argument
-try:
-    text_file = open((sys.argv[1]))
-# exits if there is no cli argument
-except IndexError:
-    print("Invalid input. Refer to documentation")
-    exit()
-# exits if the file doesn't exist
-except FileNotFoundError:
-    print("File doesn't exist")
-    exit()
-
-# puts all lines of the text file into a list
-all_lines = text_file.readlines()
-print("Starting custom station as " + str(all_lines[0]))
-
-# checks for mode in first line, checks the file and starts the required function
-if all_lines[0] == "E11\n":
-    validator.sggroupcheck(all_lines[1], 3, 0, "Primary ID")
-    validator.sggroupcheck(all_lines[2], 0, 2, "Group count")
-    validator.multigroupcheck(all_lines[3])
-    print("\n")
-    print("Begin message")
-    e11()
-elif all_lines[0] == "E07\n":
-    validator.sggroupcheck(all_lines[1], 3, 0, "Primary ID")
-    validator.sggroupcheck(all_lines[2], 0, 1, "Secondary ID")
-    validator.sggroupcheck(all_lines[3], 0, 2, "Group count")
-    validator.multigroupcheck(all_lines[4])
-    print("\n")
-    print("Begin message")
-    e07()
-elif all_lines[0] == "E07a\n":
-    validator.sggroupcheck(all_lines[1], 3, 0, "Primary ID")
-    validator.sggroupcheck(all_lines[2], 5, 0, "Third ID")
-    validator.sggroupcheck(all_lines[3], 0, 1, "Secondary ID")
-    validator.sggroupcheck(all_lines[4], 0, 2, "Group count")
-    validator.multigroupcheck(all_lines[5])
-    print("\n")
-    print("Begin message")
-    e07a()
-elif all_lines[0] == "S11a\n":
-    validator.sggroupcheck(all_lines[1], 3, 0, "Primary ID")
-    validator.sggroupcheck(all_lines[2], 0, 2, "Group count")
-    validator.multigroupcheck(all_lines[3])
-    print("\n")
-    print("Begin message")
-    s11a()
-else:
-    print("File invalid")
