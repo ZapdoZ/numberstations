@@ -4,7 +4,7 @@ Python script that emulates real numbers stations
     playsound
 
 ## Usage
-Launch "main.py <textfile.txt>" in the CLI of your choice.  
+Open interface.py  
 
 ## The stations
 So far, this script supports E11, E07, E07a and S11a (single message formats; I'm working on more!).  
