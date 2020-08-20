@@ -2,6 +2,7 @@ Python script that emulates real numbers stations
 ## Required libraries
 
     playsound
+    multiprocess
 
 ## Usage
 Open interface.py  
