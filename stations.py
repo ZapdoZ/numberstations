@@ -132,6 +132,77 @@ def s11a(inputID, inputgrpcnt, inputmessage):
     playsound("S11a/Konets.wav")
 
 
+def g06(inputID, inputsecid, inputgrpcnt, inputmessage):
+    # IndexError: list index out of range
+    # sets the line to read from and converts the string to a list;
+    activeline = inputID
+    activelist = ([activeline[i:i + 1] for i in range(0, len(activeline), 1)])
+    grpcnt = ([inputgrpcnt[i:i + 1] for i in range(0, len(inputgrpcnt), 1)])
+    print("For ID " + ''.join(activelist))
+    print("1 message")
+    # plays the starting ID for 4 minutes
+    # (73x in real world transmission; timing inaccurate (might improve that in future versions)
+    for i in range(73):
+        for Nr in range(3):
+            activenumber = activelist[Nr]
+            playsound("Stasi/de/{}.wav".format(activenumber))
+            sleep(0.35)
+        sleep(1.18-0.35)
+    # mid part. Plays 3 digit sec. group and groupcount twice
+    activeline = inputsecid
+    activelist = ([activeline[i:i + 1] for i in range(0, len(activeline), 1)])
+    print(' '.join(activelist))
+    print("With " + ' '.join(grpcnt) + " groups")
+    for i in range(2):
+        for Nr in range(3):
+            activenumber = activelist[Nr]
+            playsound("Stasi/de/{}.wav".format(activenumber))
+            sleep(0.35)
+        sleep(1.18-0.35)
+    for i in range(2):
+        for Nr in range(len(grpcnt)):
+            activenumber = grpcnt[Nr]
+            playsound("Stasi/de/{}.wav".format(activenumber))
+            sleep(0.35)
+        sleep(1.18-0.35)
+    # -- MAIN PART --
+    activeline = inputmessage
+    activelist = activeline.split()
+    print(activelist)
+    for i in range(len(activelist)):
+        activegroup = activelist[i]
+        activesplitgroup = ([activegroup[i:i + 1] for i in range(0, len(activegroup), 1)])
+        print(' '.join(activesplitgroup))
+        for j in range(2):
+            for Nr in range(5):
+                activenumber = activesplitgroup[Nr]
+                playsound("Stasi/de/{}.wav".format(activenumber))
+                sleep(0.35)
+            sleep(1.18-0.35)
+        # sleep(1.18-0.35)
+    # End part
+    activeline = inputsecid
+    activelist = ([activeline[i:i + 1] for i in range(0, len(activeline), 1)])
+    print(' '.join(activelist))
+    print(' '.join(grpcnt))
+    for i in range(2):
+        for Nr in range(3):
+            activenumber = activelist[Nr]
+            playsound("Stasi/de/{}.wav".format(activenumber))
+            sleep(0.35)
+        sleep(1.18-0.35)
+    for i in range(2):
+        for Nr in range(len(grpcnt)):
+            activenumber = grpcnt[Nr]
+            playsound("Stasi/de/{}.wav".format(activenumber))
+            sleep(0.35)
+        sleep(0.52-0.35)
+    print("000 000")
+    for i in range(6):
+        playsound("Stasi/de/0.wav")
+        sleep(0.35)
+
+
 def e07(inputID, inputsecid, inputgrpcnt, inputmessage):
     # ---beginning---
     # sets the line to read from and converts the string to a list;
@@ -258,4 +329,5 @@ def e07a(inputID, inputsecid, inputthirdid, inputgrpcnt, inputmessage):
         for Nr in range(3):
             playsound("E07/0.wav")
             sleep(0.4)
+
 
